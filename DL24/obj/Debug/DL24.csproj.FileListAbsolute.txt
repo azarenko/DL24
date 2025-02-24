@@ -1,0 +1,11 @@
+C:\projects\personal\DL24\DL24\obj\Debug\DL24.csproj.AssemblyReference.cache
+C:\projects\personal\DL24\DL24\obj\Debug\DL24.Properties.Resources.resources
+C:\projects\personal\DL24\DL24\obj\Debug\DL24.csproj.GenerateResource.cache
+C:\projects\personal\DL24\DL24\obj\Debug\DL24.csproj.CoreCompileInputs.cache
+C:\projects\personal\DL24\DL24\bin\Debug\DL24.exe
+C:\projects\personal\DL24\DL24\bin\Debug\DL24.pdb
+C:\projects\personal\DL24\DL24\obj\Debug\DL24.MainForm.resources
+C:\projects\personal\DL24\DL24\obj\Debug\DL24.exe
+C:\projects\personal\DL24\DL24\obj\Debug\DL24.pdb
+C:\projects\personal\DL24\DL24\bin\Debug\NPlot.dll
+C:\projects\personal\DL24\DL24\obj\Debug\DL24.csproj.CopyComplete

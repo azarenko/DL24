@@ -1,0 +1,30 @@
+软件更新说明（2021年12月22日）
+===============================
+1.此软件适用于2021年12月份之前的所有DL24 DL24P DL24M等系列电子负载产品。
+2.此版软件可以绘制电流，电压，功率，温度四个曲线。
+3.此版软件CC模式下的电流，限时放电，截止放电等参数设置。
+   在CC模式下，如需要调整其测试参数，请点设置，方可编辑，
+   设定电流：格式：0.01A，限时放电：格式：00:01，停止电压：格式：0.1V，本产品为了兼容DL24M系列产品，
+   您可以设置0.1V截 止电压，但是软件在0.8V以下设置参数，比如您设置0.7V，软件会显示OFF，这个属于正常的。
+4.串口设置，如果下来未发现串口列表，请点击放大镜图标，串口号会出现下拉串口号（COM1）
+5.其他测试模式，如：CR,CP,CV测试模式，必须要在负载设备上面切换，软件下拉无法自动切换测试模式。
+   比如：您需要测试CP，需要长按设置键，单击+或者-键，切换到CP测量模式，然后可以通过软件切换到CP模式
+               这样软件就可以控制设备。
+6.本软件可以导出数据Excel.CSV格式文件，每次停止放电会自动生成一个数据文件，在软件目录data文件夹下面查找.
+
+Software update instructions (December 22, 2021)
+
+========================================
+
+1. This software is suitable for all DL24 DL24P DL24M series electronic load products before December 2021.
+
+2. This version of the software can draw four curves of current, voltage, power and temperature.
+
+3. This version of the software CC mode current, time-limited discharge, cut-off discharge and other parameter settings.
+   In the CC mode, if you need to adjust the test parameters, please click Set to edit, set the current: format: 0.01A, time discharge: format: 00:01, stop voltage: format: 0.1V, this product is compatible For DL24M series products, you can set the 0.1V cut-off voltage, but the software sets the parameters below 0.8V. For example, if you set 0.7V, the software will display OFF. This is normal.
+
+4. Serial port settings, if you do not find the serial port list, please click the magnifying glass icon, the serial port number will appear drop-down serial port number (COM1)
+
+5. Other test modes, such as CR, CP, CV test modes, must be switched on the load equipment, and the test mode cannot be switched automatically when the software is pulled down. For example, if you need to test the CP, you need to press and hold the setting button, click the + or-button to switch to the CP measurement mode, and then switch to the CP mode through the software, so that the software can control the device.
+
+6. The software can export data in Excel.CSV format. A data file will be automatically generated every time the discharge is stopped. Find it under the data folder of the software catalog.
