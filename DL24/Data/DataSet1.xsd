@@ -127,6 +127,7 @@
               <xs:element name="Num" msprop:Generator_ColumnPropNameInTable="NumColumn" msprop:Generator_ColumnPropNameInRow="Num" msprop:Generator_UserColumnName="Num" msprop:Generator_ColumnVarNameInTable="columnNum" type="xs:int" />
               <xs:element name="Resistance" msprop:Generator_ColumnPropNameInTable="ResistanceColumn" msprop:Generator_ColumnPropNameInRow="Resistance" msprop:Generator_UserColumnName="Resistance" msprop:Generator_ColumnVarNameInTable="columnResistance" type="xs:double" minOccurs="0" />
               <xs:element name="Capacity" msprop:Generator_ColumnPropNameInTable="CapacityColumn" msprop:Generator_ColumnPropNameInRow="Capacity" msprop:Generator_UserColumnName="Capacity" msprop:Generator_ColumnVarNameInTable="columnCapacity" type="xs:double" minOccurs="0" />
+              <xs:element name="Diff" msprop:Generator_ColumnPropNameInRow="Diff" msprop:Generator_ColumnPropNameInTable="DiffColumn" msprop:Generator_ColumnVarNameInTable="columnDiff" msprop:Generator_UserColumnName="Diff" type="xs:double" default="0" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

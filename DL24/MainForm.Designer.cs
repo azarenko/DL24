@@ -64,6 +64,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this._portName = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this._plotTime = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this._plotVMin = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this._plotVMax = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this._plot = new NPlot.Windows.PlotSurface2D();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -176,7 +182,7 @@
             this.dataSet1 = new DL24.Data.DataSet1();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.dataGridViewStatus = new System.Windows.Forms.DataGridView();
-            this.numDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resistanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourceStatus = new System.Windows.Forms.BindingSource(this.components);
@@ -186,6 +192,13 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.backgroundWorkerPort = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Diff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recalculateStatisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalizeChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exportToExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -229,6 +242,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.toolToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -569,6 +583,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this._plotTime);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this._plotVMin);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this._plotVMax);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this._plot);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(258, 3);
@@ -577,6 +597,60 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chart";
+            // 
+            // _plotTime
+            // 
+            this._plotTime.Location = new System.Drawing.Point(443, 23);
+            this._plotTime.Name = "_plotTime";
+            this._plotTime.Size = new System.Drawing.Size(120, 22);
+            this._plotTime.TabIndex = 6;
+            this._plotTime.Text = "10";
+            this._plotTime.TextChanged += new System.EventHandler(this._plotTime_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(396, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 16);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Time:";
+            // 
+            // _plotVMin
+            // 
+            this._plotVMin.Location = new System.Drawing.Point(290, 21);
+            this._plotVMin.Name = "_plotVMin";
+            this._plotVMin.Size = new System.Drawing.Size(100, 22);
+            this._plotVMin.TabIndex = 4;
+            this._plotVMin.Text = "0.000";
+            this._plotVMin.TextChanged += new System.EventHandler(this._plotVMin_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(203, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 16);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Voltage Min:";
+            // 
+            // _plotVMax
+            // 
+            this._plotVMax.Location = new System.Drawing.Point(97, 21);
+            this._plotVMax.Name = "_plotVMax";
+            this._plotVMax.Size = new System.Drawing.Size(100, 22);
+            this._plotVMax.TabIndex = 2;
+            this._plotVMax.Text = "5.000";
+            this._plotVMax.TextChanged += new System.EventHandler(this._plotVMax_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Voltage Max:";
             // 
             // _plot
             // 
@@ -594,7 +668,7 @@
             this._plot.RightMenu = null;
             this._plot.ShowCoordinates = true;
             this._plot.Size = new System.Drawing.Size(1233, 408);
-            this._plot.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            this._plot.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this._plot.TabIndex = 0;
             this._plot.Text = "plotSurface2D1";
             this._plot.Title = "";
@@ -1720,9 +1794,10 @@
             this.dataGridViewStatus.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewStatus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStatus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.numDataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn1,
             this.resistanceDataGridViewTextBoxColumn,
-            this.capacityDataGridViewTextBoxColumn});
+            this.capacityDataGridViewTextBoxColumn,
+            this.Diff});
             this.dataGridViewStatus.DataSource = this.bindingSourceStatus;
             this.dataGridViewStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewStatus.Location = new System.Drawing.Point(3, 18);
@@ -1735,32 +1810,32 @@
             this.dataGridViewStatus.Size = new System.Drawing.Size(721, 414);
             this.dataGridViewStatus.TabIndex = 0;
             // 
-            // numDataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn1
             // 
-            this.numDataGridViewTextBoxColumn1.DataPropertyName = "Num";
-            this.numDataGridViewTextBoxColumn1.HeaderText = "Num";
-            this.numDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.numDataGridViewTextBoxColumn1.Name = "numDataGridViewTextBoxColumn1";
-            this.numDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.numDataGridViewTextBoxColumn1.Width = 64;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Num";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Num";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 64;
             // 
             // resistanceDataGridViewTextBoxColumn
             // 
             this.resistanceDataGridViewTextBoxColumn.DataPropertyName = "Resistance";
-            this.resistanceDataGridViewTextBoxColumn.HeaderText = "Resistance (mOhm)";
+            this.resistanceDataGridViewTextBoxColumn.HeaderText = "Resistance";
             this.resistanceDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.resistanceDataGridViewTextBoxColumn.Name = "resistanceDataGridViewTextBoxColumn";
             this.resistanceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.resistanceDataGridViewTextBoxColumn.Width = 141;
+            this.resistanceDataGridViewTextBoxColumn.Width = 104;
             // 
             // capacityDataGridViewTextBoxColumn
             // 
             this.capacityDataGridViewTextBoxColumn.DataPropertyName = "Capacity";
-            this.capacityDataGridViewTextBoxColumn.HeaderText = "Capacity (A/h)";
+            this.capacityDataGridViewTextBoxColumn.HeaderText = "Capacity";
             this.capacityDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.capacityDataGridViewTextBoxColumn.Name = "capacityDataGridViewTextBoxColumn";
             this.capacityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.capacityDataGridViewTextBoxColumn.Width = 110;
+            this.capacityDataGridViewTextBoxColumn.Width = 89;
             // 
             // bindingSourceStatus
             // 
@@ -1795,6 +1870,57 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // Diff
+            // 
+            this.Diff.DataPropertyName = "Diff";
+            this.Diff.HeaderText = "Diff";
+            this.Diff.MinimumWidth = 6;
+            this.Diff.Name = "Diff";
+            this.Diff.ReadOnly = true;
+            this.Diff.Width = 55;
+            // 
+            // toolToolStripMenuItem
+            // 
+            this.toolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.recalculateStatisticToolStripMenuItem,
+            this.normalizeChartToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.exportToExcelToolStripMenuItem});
+            this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
+            this.toolToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
+            this.toolToolStripMenuItem.Text = "Tool";
+            // 
+            // recalculateStatisticToolStripMenuItem
+            // 
+            this.recalculateStatisticToolStripMenuItem.Name = "recalculateStatisticToolStripMenuItem";
+            this.recalculateStatisticToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.recalculateStatisticToolStripMenuItem.Text = "Recalculate statistic";
+            this.recalculateStatisticToolStripMenuItem.Click += new System.EventHandler(this.recalculateStatisticToolStripMenuItem_Click);
+            // 
+            // normalizeChartToolStripMenuItem
+            // 
+            this.normalizeChartToolStripMenuItem.Name = "normalizeChartToolStripMenuItem";
+            this.normalizeChartToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.normalizeChartToolStripMenuItem.Text = "Normalize chart";
+            this.normalizeChartToolStripMenuItem.Click += new System.EventHandler(this.normalizeChartToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
+            // 
+            // exportToExcelToolStripMenuItem
+            // 
+            this.exportToExcelToolStripMenuItem.Name = "exportToExcelToolStripMenuItem";
+            this.exportToExcelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exportToExcelToolStripMenuItem.Text = "Export to Excel";
+            this.exportToExcelToolStripMenuItem.Click += new System.EventHandler(this.exportToExcelToolStripMenuItem_Click);
+            // 
+            // saveFileDialog2
+            // 
+            this.saveFileDialog2.DefaultExt = "xlsx";
+            this.saveFileDialog2.FileName = "Data.xlsx";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1823,6 +1949,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
@@ -1892,9 +2019,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn voltageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn currentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tempDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resistanceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn capacityDataGridViewTextBoxColumn;
         private NPlot.Windows.PlotSurface2D _plot;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn voltage1DataGridViewTextBoxColumn;
@@ -1999,6 +2123,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn voltage34DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn current34DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn temp34DataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox _plotTime;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox _plotVMin;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox _plotVMax;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resistanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn capacityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Diff;
+        private System.Windows.Forms.ToolStripMenuItem toolToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recalculateStatisticToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem normalizeChartToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem exportToExcelToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog2;
     }
 }
 

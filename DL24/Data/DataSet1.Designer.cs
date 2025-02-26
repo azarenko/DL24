@@ -312,7 +312,7 @@ namespace DL24.Data {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class BatteryTestDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+        public partial class BatteryTestDataTable : global::System.Data.TypedTableBase<BatteryTestRow> {
             
             private global::System.Data.DataColumn columnTime;
             
@@ -1637,12 +1637,6 @@ namespace DL24.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public virtual global::System.Collections.IEnumerator GetEnumerator() {
-                return this.Rows.GetEnumerator();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 BatteryTestDataTable cln = ((BatteryTestDataTable)(base.Clone()));
                 cln.InitVars();
@@ -2311,13 +2305,15 @@ namespace DL24.Data {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class BatteryStatusDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+        public partial class BatteryStatusDataTable : global::System.Data.TypedTableBase<BatteryStatusRow> {
             
             private global::System.Data.DataColumn columnNum;
             
             private global::System.Data.DataColumn columnResistance;
             
             private global::System.Data.DataColumn columnCapacity;
+            
+            private global::System.Data.DataColumn columnDiff;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2378,6 +2374,14 @@ namespace DL24.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DiffColumn {
+                get {
+                    return this.columnDiff;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2413,12 +2417,13 @@ namespace DL24.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public BatteryStatusRow AddBatteryStatusRow(int Num, double Resistance, double Capacity) {
+            public BatteryStatusRow AddBatteryStatusRow(int Num, double Resistance, double Capacity, double Diff) {
                 BatteryStatusRow rowBatteryStatusRow = ((BatteryStatusRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Num,
                         Resistance,
-                        Capacity};
+                        Capacity,
+                        Diff};
                 rowBatteryStatusRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBatteryStatusRow);
                 return rowBatteryStatusRow;
@@ -2429,12 +2434,6 @@ namespace DL24.Data {
             public BatteryStatusRow FindByNum(int Num) {
                 return ((BatteryStatusRow)(this.Rows.Find(new object[] {
                             Num})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public virtual global::System.Collections.IEnumerator GetEnumerator() {
-                return this.Rows.GetEnumerator();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2457,6 +2456,7 @@ namespace DL24.Data {
                 this.columnNum = base.Columns["Num"];
                 this.columnResistance = base.Columns["Resistance"];
                 this.columnCapacity = base.Columns["Capacity"];
+                this.columnDiff = base.Columns["Diff"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2468,10 +2468,13 @@ namespace DL24.Data {
                 base.Columns.Add(this.columnResistance);
                 this.columnCapacity = new global::System.Data.DataColumn("Capacity", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCapacity);
+                this.columnDiff = new global::System.Data.DataColumn("Diff", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDiff);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNum}, true));
                 this.columnNum.AllowDBNull = false;
                 this.columnNum.Unique = true;
+                this.columnDiff.DefaultValue = ((double)(0D));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3805,6 +3808,22 @@ namespace DL24.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double Diff {
+                get {
+                    try {
+                        return ((double)(this[this.tableBatteryStatus.DiffColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Diff\' in table \'BatteryStatus\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBatteryStatus.DiffColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsResistanceNull() {
                 return this.IsNull(this.tableBatteryStatus.ResistanceColumn);
             }
@@ -3825,6 +3844,18 @@ namespace DL24.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCapacityNull() {
                 this[this.tableBatteryStatus.CapacityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDiffNull() {
+                return this.IsNull(this.tableBatteryStatus.DiffColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDiffNull() {
+                this[this.tableBatteryStatus.DiffColumn] = global::System.Convert.DBNull;
             }
         }
         
